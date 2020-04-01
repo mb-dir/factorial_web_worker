@@ -4,20 +4,12 @@ const silniaInfoPlace = document.querySelector('#silniaInfo');
 formData.addEventListener('submit', (e)=>{
     e.preventDefault();
     const number = parseInt(document.querySelector('#silnia').value);
+    const worker = new Worker('./silnia-worker.js');
 
-    const silniaValue = silnia(number);
+    worker.addEventListener('message', ({data})=>{
+        silniaInfoPlace.innerHTML = `Silnia liczby ${number} wynosi ${data}`
+        worker.terminate();
+    });
 
-    silniaInfoPlace.innerHTML = `Silnia liczby ${number} to ${silniaValue}`
+    worker.postMessage(number);
 });
-
-function silnia(number){
-    if(number === 0){
-        return 0;
-    } else if (number === 1){
-        return 1;
-    } else if (number === 2){
-        return 2;
-    }else{
-        return silnia(number-1)*number;
-    }
-}
