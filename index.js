@@ -4,6 +4,10 @@ const silniaInfoPlace = document.querySelector('#silniaInfo');
 formData.addEventListener('submit', (e)=>{
     e.preventDefault();
     const number = parseInt(document.querySelector('#silnia').value);
+
+    const silniaValue = silnia(number);
+
+    silniaInfoPlace.innerHTML = `Silnia liczby ${number} to ${silniaValue}`
 });
 
 function silnia(number){
