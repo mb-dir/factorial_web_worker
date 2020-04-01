@@ -1,0 +1,16 @@
+body{
+    text-align: center;
+}
+form{
+    border: 1px solid red;
+    width: 40%;
+    margin: 0 auto;
+    min-height: 150px;
+}
+.wrapperData{
+    margin: 10px 0;
+}
+label{
+    display: block;
+    margin-bottom: 3px;
+}
